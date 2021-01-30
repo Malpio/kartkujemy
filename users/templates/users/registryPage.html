@@ -1,15 +1,15 @@
-{% extends 'base.html' %}
+{% extends 'users/base.html' %}
 {% block content %}
     <div class="center-container">
-        <h1>Logowanie</h1>
+        <h1>Rejestracja</h1>
         <div class="form-group form-container">
             <div>
                 <form class="form-group" method="post">
                     {% csrf_token %}
                     {{ form.as_p }}
-                    <button class="btn btn-primary mb-3" type="submit">Zaloguj</button>
+                    <button class="btn btn-primary mb-3" type="submit">Zarejestruj</button>
                 </form>
-                <div class="asking-container"><p>Nie masz jeszcze konta?&nbsp</p> <a href="{% url 'registry' %}">Zarejestruj
+                <div class="asking-container"><p>Masz już konto?&nbsp</p> <a href="{% url 'login' %}">Zaloguj
                     się!</a></div>
             </div>
         </div>

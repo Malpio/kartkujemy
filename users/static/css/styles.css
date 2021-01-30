@@ -1,10 +1,11 @@
 body {
     background-color: azure;
+    font-family: Georgia, serif;
 }
 .center-container {
     text-align: center;
     padding: 50px 250px;
-    background-color: greenyellow;
+    background-color: aquamarine;
 }
 .center-container>h1 {
     margin-bottom: 50px ;

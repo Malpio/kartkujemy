@@ -1,7 +1,9 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
+def booksListPage(request):
+    if not request.user.is_authenticated:
+        return redirect('/users')
 
-def index(request):
-    return HttpResponse("dashboard")
+    return render(request, 'dashboard/booksListPage.html')
 

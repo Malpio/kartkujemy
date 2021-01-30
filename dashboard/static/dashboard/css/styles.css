@@ -1,0 +1,49 @@
+body {
+    background-color: azure;
+    font-family: Georgia, serif;
+}
+p, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+}
+.top-bar{
+    height: 70px;
+    box-shadow: 7px 7px 10px rgba(171,211,173,0.96) ;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: aquamarine;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 15px;
+}
+.top-bar > .welcome-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.logout-button {
+     box-shadow: 2px 2px 5px rgba(144,211,111,0.96);
+}
+
+.navigation-bar {
+    height: calc(100vh - 70px);
+    width: 15vw;
+    background-color: aquamarine;
+    position: absolute;
+    top: 70px;
+    bottom: 0;
+    left: 0;
+    box-shadow: 7px 7px 10px rgba(211,211,211,0.96);
+}
+.content-container {
+    background-color: azure;
+    position: absolute;
+    box-shadow: 7px 7px 15px 10px rgba(211,211,211,0.96);
+    left: calc(15vw + 20px);
+    top: 90px;
+    height: calc(100vh - 105px);
+    width: calc(100vw - 15vw - 35px);
+}

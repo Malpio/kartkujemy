@@ -1,15 +1,8 @@
-from django.conf.urls import url
-from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from django.template import Template, Context
-from datetime import date
 from django.contrib import messages
 from .forms import LoginForm, RegistryForm
 from .models import User
 from django.contrib.auth import login, authenticate, logout
-from django.views.generic import ListView, DeleteView
-from django.views.generic.edit import CreateView, DeleteView, UpdateView
-from django.urls import reverse_lazy
 
 
 def loginPage(request):
@@ -31,7 +24,7 @@ def loginPage(request):
         else:
             messages.warning(request, 'Nieprawidłowe dane logowania')
     form = LoginForm()
-    return render(request, 'loginPage.html', {'form': form})
+    return render(request, 'users/loginPage.html', {'form': form})
 
 
 def registryPage(request):
@@ -56,7 +49,7 @@ def registryPage(request):
         else:
             messages.warning(request, 'Nieprawidłowe dane rejestracji')
     form = RegistryForm()
-    return render(request, 'registryPage.html', {'form': form})
+    return render(request, 'users/registryPage.html', {'form': form})
 
 
 def logoutPage(request):
