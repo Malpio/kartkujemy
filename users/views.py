@@ -39,13 +39,17 @@ def registryPage(request):
             last_name = registry_form_cleaned_data.get('first_name')
             email = registry_form_cleaned_data.get('email')
             password = registry_form_cleaned_data.get('password')
-            user, created = User.objects.get_or_create(email=email, first_name=first_name, last_name=last_name)
-            if not created:
-                messages.warning(request, 'Użytkownik o tym adresie email już istnieje!')
+            password2 =registry_form_cleaned_data.get('password2')
+            if password == password2:
+                user, created = User.objects.get_or_create(email=email, first_name=first_name, last_name=last_name)
+                if not created:
+                    messages.warning(request, 'Użytkownik o tym adresie email już istnieje!')
+                else:
+                    user.set_password(password)
+                    user.save()
+                    return redirect('login')
             else:
-                user.set_password(password)
-                user.save()
-                return redirect('login')
+                messages.warning(request, 'Hasła nie są takie same!')
         else:
             messages.warning(request, 'Nieprawidłowe dane rejestracji')
     form = RegistryForm()

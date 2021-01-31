@@ -1,23 +1,26 @@
 body {
     background-color: azure;
     font-family: Georgia, serif;
+    background-image: url("../../../../media/background.jpg");
 }
 p, h1, h2, h3, h4, h5, h6 {
     margin: 0;
     padding: 0;
+    color: rgba(49,49,49,0.96)
 }
 .top-bar{
     height: 70px;
-    box-shadow: 7px 7px 10px rgba(171,211,173,0.96) ;
+    box-shadow: 7px 7px 10px rgba(199,199,199,0.96) ;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    background-color: aquamarine;
+    background-color: beige;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     padding: 10px 15px;
+    opacity: 80%;
 }
 .top-bar > .welcome-container {
     display: flex;
@@ -31,19 +34,32 @@ p, h1, h2, h3, h4, h5, h6 {
 .navigation-bar {
     height: calc(100vh - 70px);
     width: 15vw;
-    background-color: aquamarine;
+    background-color: beige;
     position: absolute;
     top: 70px;
     bottom: 0;
     left: 0;
     box-shadow: 7px 7px 10px rgba(211,211,211,0.96);
+    padding: 10vh 0;
+    display: flex;
+    flex-direction: column;
+    opacity: 80%;
 }
 .content-container {
     background-color: azure;
     position: absolute;
-    box-shadow: 7px 7px 15px 10px rgba(211,211,211,0.96);
-    left: calc(15vw + 20px);
-    top: 90px;
-    height: calc(100vh - 105px);
-    width: calc(100vw - 15vw - 35px);
+    left: calc(15vw);
+    top: 70px;
+    height: calc(100vh - 70px);
+    width: calc(100vw - 15vw);
+    opacity: 98%;
+}
+.menu-button {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 7px 7px 10px rgba(211,211,211,0.96);
+    align-items: center;
+    margin-bottom: 15px;
 }

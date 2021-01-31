@@ -1,0 +1,21 @@
+{% extends 'dashboard/base.html' %}
+{% block name %}
+    {{ user.get_username }}
+{% endblock %}
+{% block content %}
+    <div class="list_container">
+    {% for book in object_list %}
+        <div class="list_element_container">
+           <div class="left_container">
+                <img class="image" src="{{ book.photo.url }}">
+            <div class="list_content">
+                <h3>{{ book.title }}</h3>
+                <h5>{{ book.author_name }}</h5>
+                <H6>Ocena:&nbsp{{ book.general_rating }}/10&nbsp&nbspLiczba ocen:&nbsp{{ book.rating_count }}</H6>
+            </div>
+           </div>
+             <a class="btn btn-outline-success details_button" href="{% url 'book_view' book.id %}" role="button">Szczegóły</a>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}

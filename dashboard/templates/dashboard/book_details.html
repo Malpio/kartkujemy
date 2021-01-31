@@ -1,0 +1,44 @@
+{% extends 'dashboard/base.html' %}
+{% block name %}
+    {{ user.get_username }}
+{% endblock %}
+{% block content %}
+    <div class="main_container">
+        <div class="top_container">
+            <img class="photo_container" src="{{ book.photo.url }}">
+            <div class="right_container">
+               <div class="right_content_top">
+                    <h1>{{ book.title }}</h1>
+                <h3>Autor książki:&nbsp{{ book.author_name }}</h3>
+               </div>
+                <div class="right_content_bottom">
+                    <h3>Ocena książki:&nbsp{{ book.general_rating }}/10</h3>
+                <h3>Liczba ocen:&nbsp{{ book.rating_count }}</h3>
+                {% if book_of_user and book_of_user.rating %}
+                    <h3>Twoj ocena to&nbsp{{ book_of_user.rating }}</h3>
+                {% else %}
+                   <div class="rating_form ">
+                    <form class="rating_form form-group my-2 my-lg-0 ml-auto" method="post">
+                        {% csrf_token %}
+                        {{ rating_form.as_p }}
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Dodaj ocenę</button>
+                    </form>
+                    </div>
+                {% endif %}
+                </div>
+
+            </div>
+        <div class="status_container">
+            {% if book_of_user %}
+                <h5 class="status_info">Na Twojej liście książka widnieje jako &nbsp <b>"{{ book_of_user.status }}"</b></h5>
+            {% endif %}
+             <form class="rating_form form-group my-2 my-lg-0 ml-auto" method="post">
+                {% csrf_token %}
+                {{ status_form.as_p }}
+                 <button class="btn btn-outline-success my-2 my-sm-0 " type="submit">Zmień status książki</button>
+             </form>
+
+        </div>
+        </div>
+    </div>
+{% endblock %}
