@@ -5,7 +5,13 @@ from dashboard.forms import RatingForm, StatusForm
 
 
 class BookList(ListView):
+
     model = Book
+
+    def get(self, *args, **kwargs):
+        if not self.request.user.is_authenticated:
+            return redirect('/users')
+        return super(BookList, self).get(*args, **kwargs)
 
 
 def detailsPage(request, pk):
@@ -48,6 +54,9 @@ def detailsPage(request, pk):
 
 
 def myBooksList(request):
+    if not request.user.is_authenticated:
+        return redirect('/users')
+
     books_of_user = BooksOfUsers.objects.filter(user=request.user)
     books_of_user = [book for book in books_of_user if book.status != 'Nie wybrano']
     books_ids = [book.book.id for book in books_of_user]
